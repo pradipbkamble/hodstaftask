@@ -3,6 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  baseurl:"https://newhod-project-default-rtdb.asia-southeast1.firebasedatabase.app",
+  
   production: false
 };
 
