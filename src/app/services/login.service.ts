@@ -40,7 +40,7 @@ formhttpfetchall(){
       for(const key in res){
 formarray.push({...res[key],id:key})
 console.log(formarray);
-console.log(res)
+console.log(res);
 
 
       }
