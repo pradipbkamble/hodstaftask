@@ -1,81 +1,98 @@
-<div class="container">
+
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div  *ngIf="!islogin">
-<h1>login page</h1>
-                <form [formGroup]="forminputs" (ngSubmit)="loginform()">
-                    <div class="form-group">
-                        <label for="username">username</label>
-                        <input type="text" class="form-control" formControlName="username">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">password</label>
-                        <input type="text" class="form-control" formControlName="password">
-                    </div>
-                    <div class="form-group">
-                        <label [for]="desig" *ngFor="let desig of staf" class="m-3"> {{desig}}
-                            <input type="radio" [value]="desig" formControlName="status" class="m-1">
-                        </label>
-                    </div>
-    <div>
-        
-    </div>
-    
-                    <!-- <button class="btn btn-primary">login</button> -->
-                </form>
+            <div class="authform">
+
+           <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                    <div  *ngIf="!islogin">
+        <h1>login page</h1>
+                        <form [formGroup]="forminputs" (ngSubmit)="loginform()">
+                            <div class="form-group">
+                                <label for="username">username</label>
+                                <input type="text" class="form-control" formControlName="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">password</label>
+                                <input type="text" class="form-control" formControlName="password">
+                            </div>
+                            <div class="form-group">
+                                <label [for]="desig" *ngFor="let desig of staf" class="m-3"> {{desig}}
+                                    <input type="radio" [value]="desig" formControlName="status" class="m-1">
+                                </label>
+                            </div>
+            <div>
+                
             </div>
-
-           <div *ngIf="islogin">
-            <h1 class="bg-info text-center p-3">signup form</h1>
-            <form [formGroup]="formregister" (ngSubmit)="signinform()">
-
-<div class="form-group">
-    <label [for]="desig" *ngFor="let desig of staf" class="m-3"> {{desig}}
-        <input type="radio" [value]="desig" formControlName="status" class="m-1">
-    </label>
-</div>
-
-                <div class="form-group">
-                    <label for="name">name</label>
-                    <input type="text" class="form-control" formControlName="name">
-                </div>
-                <div class="form-group">
-                    <label for="Lname">Lname</label>
-                    <input type="text" class="form-control" formControlName="Lname">
-                </div>
-                <div class="form-group">
-                    <label for="gmail">gmail</label>
-                    <input type="text" class="form-control" formControlName="gmail">
-                </div>
-                <div class="form-group">
-                    <label for="contact">contact</label>
-                    <input type="text" class="form-control" formControlName="contact">
-                </div>
-                <!-- <div class="form-group">
-                    <label for="">select for authentication</label>
-                    <input type="radio">staff <input type="radio">admin
-                </div> -->
-                <div class="form-group">
-                    <select name="department" id="department" class="form-control" formControlName="department">
-                        <option value="It">It</option>
-                        <option value="mechenical">mechenical</option>
-                        <option value="csc">csc</option>
-                        <option value="civil">civil</option>
-                    </select>
-                </div>
-                <button class="btn btn-success" type="submit">signup</button>
-
-
-
-            </form>
-           
+            
+                            <button class="btn btn-primary">login</button>
+                        </form>
+                    </div>
+        
+                   <div *ngIf="islogin">
+                    <h1 class="bg-info text-center p-3">signup form</h1>
+                    <form [formGroup]="formregister" (ngSubmit)="signinform()">
+        
+        <div class="form-group">
+            <label [for]="desig" *ngFor="let desig of staf" class="m-3"> {{desig}}
+                <input type="radio" [value]="desig" formControlName="status" class="m-1">
+            </label>
+        </div>
+        
+                        <div class="form-group">
+                            <label for="name">name</label>
+                            <input type="text" class="form-control" formControlName="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="Lname">Lname</label>
+                            <input type="text" class="form-control" formControlName="Lname">
+                        </div>
+                        <div class="form-group">
+                            <label for="gmail">gmail</label>
+                            <input type="text" class="form-control" formControlName="gmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">contact</label>
+                            <input type="text" class="form-control" formControlName="contact">
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="">select for authentication</label>
+                            <input type="radio">staff <input type="radio">admin
+                        </div> -->
+                        <div class="form-group">
+                            <select name="department" id="department" class="form-control" formControlName="department">
+                                <option value="It">It</option>
+                                <option value="mechenical">mechenical</option>
+                                <option value="csc">csc</option>
+                                <option value="civil">civil</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-success" type="submit">signup</button>
+        
+        
+        
+                    </form>
+                   
+                   </div>
+                  <mat-card-footer>
+                    <p> 
+                        {{islogin ? 'already registered' :'not registered yet' }}
+                        <a href="js:" (click)="islogin=!islogin" class="btn-link">
+                            {{!islogin ? 'register' :'login'}}
+                        </a>
+                    </p>
+                  </mat-card-footer>
+            </mat-card>
+            </div>
            </div>
-           <p> 
-            {{islogin ? 'already registered' :'not registered yet' }}
-            <a href="js:" (click)="islogin=!islogin" class="btn-link">
-                {{!islogin ? 'register' :'login'}}
-            </a>
-        </p>
+</div>
         </div>
     </div>
-</div>
+    <!-- <div class="row">
+        <div class="col-md-12">
+            <div class="card" *ngFor="let obj of arryform" [objsof]="obj" >
+                
+            </div>
+        </div>
+    </div> -->

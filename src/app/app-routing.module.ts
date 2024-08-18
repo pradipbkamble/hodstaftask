@@ -7,11 +7,20 @@ import { LoginComponent } from './components/login/login.component';
 import { CountComponent } from './components/count/count.component';
 import { AuthGuard } from './guards/auth.guard';
 import { StafroleGuard } from './guards/stafrole.guard';
+import { UserdataComponent } from './components/userdata/userdata.component';
 
 const routes: Routes = [
   {
     path:'',
     component:LoginComponent
+  },
+  {
+path:"userdata",
+data:{
+  UserRole:["HOD"]
+},
+canActivate:[AuthGuard,StafroleGuard],
+component:UserdataComponent
   },
   {
     path:"dashboard",
@@ -23,6 +32,10 @@ const routes: Routes = [
   },
   {
     path:"count",
+    data:{
+      UserRole:["HOD"]
+    },
+    canActivate:[AuthGuard,StafroleGuard],
     component:CountComponent
   },
   {
@@ -32,7 +45,7 @@ const routes: Routes = [
   {
     path:"hodlogin",
     data:{
-      UserRole:["staff","HOD"]
+      UserRole:["HOD"]
     },
     canActivate:[AuthGuard,StafroleGuard],
     component:HodLoginComponent

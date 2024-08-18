@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Iproject } from 'src/app/interface/objinterface';
+import { Component, Input, OnInit } from '@angular/core';
+import { Iform, Iproject } from 'src/app/interface/objinterface';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -9,7 +9,6 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class DashboardComponent implements OnInit {
   totalcount: number = 0
-
   approvecount: number = 0
   rejectcount: number = 0
   objsarray!: Array<Iproject>;
@@ -24,6 +23,7 @@ export class DashboardComponent implements OnInit {
 
       this.count()
     })
+    
 
   }
 

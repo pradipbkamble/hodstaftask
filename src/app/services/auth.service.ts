@@ -43,7 +43,7 @@ this._rout.navigate(['dashboard'])
     console.log(localStorage.setItem("UserRole","HOD"));
     
     this.loginsub$.next(true)
-    this._rout.navigate(['hodlogin'])
+    this._rout.navigate(['dashboard'])
       }
 }
 

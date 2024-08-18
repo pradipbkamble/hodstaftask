@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Iform } from 'src/app/interface/objinterface';
 import { AuthService } from 'src/app/services/auth.service';
 import { LoginService } from 'src/app/services/login.service';
+import { UserautheService } from 'src/app/services/userauthe.service';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +15,15 @@ export class LoginComponent implements OnInit {
   forminputs!:FormGroup;
   formregister!:FormGroup;
   islogin:boolean=false;
-  arryform!:Array<Iform>;
+  loginarr!:Array<any>
+  arryform!:any;
   staf=['staff','HOD']
-  constructor(private _rout:Router, private _authser:AuthService, private _loginserv:LoginService) { }
+  constructor(private _rout:Router, private _authser:AuthService, private _loginserv:LoginService, private _user:UserautheService) { }
 
   ngOnInit(): void {
     this._loginserv.formhttpfetchall().subscribe(res=>{
       console.log(res);
-      
+      this.arryform=res
     })
     this.regincon();
     this.logincon()
@@ -36,7 +38,7 @@ logincon(){
 }
 regincon(){
   this.formregister=new FormGroup({
-    name:new FormControl(null),
+    username:new FormControl(null),
     Lname:new FormControl(null),
     gmail:new FormControl(null),
     contact:new FormControl(null),
@@ -54,23 +56,40 @@ regincon(){
 
 
   loginform(){
+
+
     let obj=this.forminputs.value
-this._authser.islogin(obj.status)
-console.log(obj);
-this._rout.navigate(["dashboard"])
+this.loginarr=this.arryform.filter((res:any)=>{
+if(res.username===obj.username && res.status===obj.status){
+  this._authser.islogin(obj.status)
+  console.log(obj);
+  console.log("loginsuccess");
+  console.log(this.loginarr);
+  
+  
+}
+else{
+  console.log("login not sucess");
+  
+}
+
+
+})
+
+this._user.userlogin(obj.username,obj.status).subscribe(res=>{
+console.log(res);
+
+})
   }
 
   signinform(){
-let objs={...this.formregister.value}
+    
+let objs=this.formregister.value
 console.log(objs);
 this._loginserv.formhttpcreate(objs).subscribe(res=>{
   console.log(res);
-  
-}
- 
-  
+  this._rout.navigate(["dashboard"])
+}  
 )
-
-
   }
 }

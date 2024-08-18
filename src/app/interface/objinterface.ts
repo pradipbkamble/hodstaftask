@@ -14,7 +14,7 @@ export interface Iproject {
 }
 
 export interface Iform {
-    name: string
+    username: string
     Lname: string
     gmail: string
     contact: number

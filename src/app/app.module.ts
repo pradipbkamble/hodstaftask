@@ -23,6 +23,8 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { CountComponent } from './components/count/count.component';
+import { UserdataComponent } from './components/userdata/userdata.component';
+
 
 
 
@@ -35,6 +37,8 @@ import { CountComponent } from './components/count/count.component';
     CardformComponent,
     DashboardComponent,
     CountComponent,
+    UserdataComponent,
+    
     
   ],
   imports: [
