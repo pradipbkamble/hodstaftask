@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
       this.arryform=res
     })
+    
     this.regincon();
     this.logincon()
   }
@@ -88,7 +89,7 @@ let objs=this.formregister.value
 console.log(objs);
 this._loginserv.formhttpcreate(objs).subscribe(res=>{
   console.log(res);
-  this._rout.navigate(["dashboard"])
+  this.formregister.reset()
 }  
 )
   }

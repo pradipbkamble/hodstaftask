@@ -1,20 +1,19 @@
 
-    <div class="row">
-        <div class="col-md-8 offset-md-2">
-            <div class="authform">
-
-           <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <mat-card>
+    <div class="row text-center" style="  background-image: linear-gradient(to right, rgba(10, 154, 216, 0.877) 20%, rgba(23, 39, 219, 0.87) 40%, rgba(132, 14, 211, 0.842) 60%, transparent);
+   ;
+    background-size: cover; height:100vh;">
+        <div class="col-md-6 offset-md-3">
+               <div class="main">
+                <mat-card class="auth-form">
                     <div  *ngIf="!islogin">
-        <h1>login page</h1>
+        <h1>Login Page</h1>
                         <form [formGroup]="forminputs" (ngSubmit)="loginform()">
                             <div class="form-group">
-                                <label for="username">username</label>
+                                <label for="username">Username</label>
                                 <input type="text" class="form-control" formControlName="username">
                             </div>
                             <div class="form-group">
-                                <label for="password">password</label>
+                                <label for="password">Password</label>
                                 <input type="text" class="form-control" formControlName="password">
                             </div>
                             <div class="form-group">
@@ -26,12 +25,12 @@
                 
             </div>
             
-                            <button class="btn btn-primary">login</button>
+                            <button class="btn btn-primary">Login</button>
                         </form>
                     </div>
         
                    <div *ngIf="islogin">
-                    <h1 class="bg-info text-center p-3">signup form</h1>
+                    <h1 class="text-center">Signup Form</h1>
                     <form [formGroup]="formregister" (ngSubmit)="signinform()">
         
         <div class="form-group">
@@ -41,7 +40,7 @@
         </div>
         
                         <div class="form-group">
-                            <label for="name">name</label>
+                            <label for="name">Name</label>
                             <input type="text" class="form-control" formControlName="username">
                         </div>
                         <div class="form-group">
@@ -49,26 +48,27 @@
                             <input type="text" class="form-control" formControlName="Lname">
                         </div>
                         <div class="form-group">
-                            <label for="gmail">gmail</label>
+                            <label for="gmail">Gmail</label>
                             <input type="text" class="form-control" formControlName="gmail">
                         </div>
                         <div class="form-group">
-                            <label for="contact">contact</label>
+                            <label for="contact">Contact</label>
                             <input type="text" class="form-control" formControlName="contact">
                         </div>
                         <!-- <div class="form-group">
-                            <label for="">select for authentication</label>
+                           
                             <input type="radio">staff <input type="radio">admin
                         </div> -->
                         <div class="form-group">
+                            <label for="">Department</label>
                             <select name="department" id="department" class="form-control" formControlName="department">
                                 <option value="It">It</option>
-                                <option value="mechenical">mechenical</option>
-                                <option value="csc">csc</option>
-                                <option value="civil">civil</option>
+                                <option value="mechenical">Mechenical</option>
+                                <option value="csc">Csc</option>
+                                <option value="civil">Civil</option>
                             </select>
                         </div>
-                        <button class="btn btn-success" type="submit">signup</button>
+                        <button class="btn btn-success" type="submit">Signup</button>
         
         
         
@@ -77,18 +77,18 @@
                    </div>
                   <mat-card-footer>
                     <p> 
-                        {{islogin ? 'already registered' :'not registered yet' }}
+                        {{islogin ? 'Already Registered' :'Don`t have An Account ?' }}
                         <a href="js:" (click)="islogin=!islogin" class="btn-link">
-                            {{!islogin ? 'register' :'login'}}
+                            {{!islogin ? 'Register' :'Login'}}
                         </a>
                     </p>
                   </mat-card-footer>
             </mat-card>
+               </div>
             </div>
            </div>
-</div>
-        </div>
-    </div>
+
+    
     <!-- <div class="row">
         <div class="col-md-12">
             <div class="card" *ngFor="let obj of arryform" [objsof]="obj" >
