@@ -14,7 +14,7 @@ export class CountComponent implements OnInit {
   rejectcount: number = 0
   objsarray!: Array<Iproject>;
   constructor(private _loginser:LoginService) { }
-
+  datecount!:any
   ngOnInit(): void {
     this.chekaccrej()
     this._loginser.httphodfetchall().subscribe(res => {
@@ -26,6 +26,7 @@ this._loginser.subdata$.subscribe(res=>{
 })
       this.count()
     })
+    
   }
   count() {
     this.totalcount = this.objsarray.length

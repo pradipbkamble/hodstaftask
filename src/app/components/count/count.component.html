@@ -1,6 +1,6 @@
 <div class="row" style="padding-top: 10%;">
     <div class="col-md-6 offset-md-3">
-     <mat-card class="text-center">
+     <mat-card class="text-center mat-elevation-z7">
          
          <div class="col-4 offset-md-4">
            <button mat-raised-button color="primary" type="button" routerLink="/hodlogin">to hod </button>
@@ -15,5 +15,26 @@
              </p>
          </div>
      </mat-card>
+
+    </div>
+    <div class="col-md-8 offset-md-2 mt-4">
+      <table class="table table-bordered text-center">
+<thead>
+  <tr>
+    <th>Sr No</th>
+    <th>Name</th>
+    <th>Leave-Duration</th>
+    <th>Leave-Status</th>
+  </tr>
+</thead>
+<tbody *ngFor="let emp of objsarray; let i =index">
+  <tr>
+    <td>{{i+1}}</td>
+    <td >{{emp.fName}}</td>
+    <td>{{emp.startDate |date}} to {{emp.endDate | date}}</td>
+    <td [ngStyle]="{'color':emp.isApproved? 'green': 'red' }">{{emp.isApproved ? 'Approved' :'Rejected'}}</td>
+  </tr>
+</tbody>
+      </table>
     </div>
  </div>
