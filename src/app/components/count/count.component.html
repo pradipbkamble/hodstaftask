@@ -31,7 +31,7 @@
   <tr>
     <td>{{i+1}}</td>
     <td >{{emp.fName}}</td>
-    <td>{{emp.startDate |date}} to {{emp.endDate | date}}</td>
+    <td>{{emp.startDate |date}} - {{emp.endDate | date}}</td>
     <td [ngStyle]="{'color':emp.isApproved? 'green': 'red' }">{{emp.isApproved ? 'Approved' :'Rejected'}}</td>
   </tr>
 </tbody>

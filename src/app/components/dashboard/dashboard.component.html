@@ -1,6 +1,6 @@
 
 
-<div class="row" style="padding-top: 10%; background-color: aqua; height: 100vh;">
+<div class="row" style="padding-top: 10%; background-color: rgb(230, 230, 12); height: 100%;">
   <div class="col-md-6 offset-md-3 text-center">
     <mat-card class="text-center">
      
@@ -12,28 +12,17 @@
               
             </button>
          </div>
+      <mat-card-footer class="my-2">
         
-      
-      <mat-card-content class="text-center">
-               
-              <p>
-                This Is Total Leaves: <strong>{{totalcount}}</strong> 
-              </p>
-              <p>
-              This Is Approve Leaves Count :<strong>{{approvecount}}</strong>    
-              </p>
-              <p>
-                  This Is Reject Leaves Count :<strong>{{rejectcount}}</strong> 
-              </p>
-      
-      </mat-card-content>
-      <mat-card-footer>
-        <div class="d-flex justify-content-between p-4">
-          <button mat-raised-button color="primary" type="button" routerLink="/hodlogin">To Hod </button>
+
           <button mat-raised-button color="accent" type="button" routerLink="/userdata">UserData</button>
-         </div>
+        
       </mat-card-footer>
      </mat-card>
+     
+  </div>
+  <div class="col-md-12 mt-1">
+    <app-count></app-count>
   </div>
 </div>
  
